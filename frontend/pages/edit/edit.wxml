@@ -1,0 +1,16 @@
+<view class="container">
+  <form bindsubmit='formSubmit' bindreset='formRest'>
+    <view class='row'>
+      <text>部门：</text>
+      <input type='text' name='name' placeholder='请输入部门名称' value='{{deptName}}' />
+    </view>
+    <view class='row'>
+      <text>序号：</text>
+      <input type='number' name='seq' placeholder='数字越小越靠前' value='{{seq}}' />
+    </view>
+    <view class='row'>
+    <button type='primary' form-type='submit'>提交</button>
+    <button type='primary' form-type='reset'>清空</button>
+    </view>
+  </form>
+</view>

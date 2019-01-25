@@ -1,0 +1,25 @@
+<!--dept.wxml-->
+<view class="container">
+  <view class="widget">
+    <text class="column">部门</text>
+    <text class="column">序号</text>
+    <text class="column">创建时间</text>
+    <text class="link-column">操作</text>
+  </view>
+  <scroll-view scroll-y="true">
+    <view>
+      <block wx:for="{{ deptList }}" wx:key="id">
+        <view class='widget'>
+          <text class="column">{{ item.name }}</text>
+          <text class="column">{{ item.seq }}</text>
+          <text class="column">{{ item.gmtCreate }}</text>
+          <view class="link-column">
+            <navigator class="link" url="../edit/edit?deptId={{ item.id }}">编辑</navigator> |
+            <text class="link" bindtap="deleteDept" data-id="{{ item.id }}" data-name="{{ item.name }}" data-index="{{ index }}">删除</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <button type="primary" bindtap="addDept">添加部门</button>
+</view>
