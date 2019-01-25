@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="suppressDate" value="true"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.chen.wechat.common.BaseMapper"/>
+        </plugin>
+
+        <!-- 数据库链接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/db_wechat?characterEncoding=UTF-8&amp;useSSL=false"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成Model类存放位置 -->
+        <javaModelGenerator targetPackage="com.chen.wechat.model" targetProject="backend/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成Mapper映射文件存放位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="backend/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成Mapper类存放位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.chen.wechat.mapper" targetProject="backend/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 生成对应表及类名 -->
+        <table tableName="dept" domainObjectName="Dept"></table>
+    </context>
+
+</generatorConfiguration>

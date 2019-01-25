@@ -1,0 +1,58 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.2.RELEASE'
+    }
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+    mavenCentral()
+}
+
+dependencies {
+    // SpringBoot
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    // Dev Tools
+    implementation('org.springframework.boot:spring-boot-devtools')
+
+    // MySQL
+    runtimeOnly('mysql:mysql-connector-java:5.1.47')
+
+    // MyBatis
+    implementation ('org.mybatis.spring.boot:mybatis-spring-boot-starter')
+
+    // Mapper
+    implementation ('tk.mybatis:mapper-spring-boot-starter:1.2.4')
+
+    // PageHelper
+    implementation ('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.10')
+
+    // MyBatis Generator
+    implementation ('org.mybatis.generator:mybatis-generator-core:1.3.7')
+
+    // Common Util
+    implementation ('org.apache.commons:commons-lang3')
+    
+    // Lombok
+    compileOnly('org.projectlombok:lombok')
+
+    // SpringBoot Test
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
